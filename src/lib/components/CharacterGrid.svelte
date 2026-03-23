@@ -35,11 +35,17 @@
 <div class="container mx-auto px-4 py-8">
   {#if loading}
     <div class="mb-8">
-      <div class="h-12 w-64 animate-pulse rounded bg-gray-200 dark:bg-gray-700"></div>
+      <div
+        class="h-12 w-64 animate-pulse rounded bg-gray-200 dark:bg-gray-700"
+      ></div>
     </div>
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {#each Array(12) as _}
-        <div class="h-80 animate-pulse rounded-lg bg-gray-200 dark:bg-gray-700"></div>
+    <div
+      class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+    >
+      {#each Array(12) as _, i (i)}
+        <div
+          class="h-80 animate-pulse rounded-lg bg-gray-200 dark:bg-gray-700"
+        ></div>
       {/each}
     </div>
   {:else if error}
@@ -61,7 +67,9 @@
     <h1 class="mb-8 text-4xl font-bold text-gray-900 dark:text-gray-100">
       Harry Potter Characters
     </h1>
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div
+      class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+    >
       {#each characters as character (character.index)}
         <CharacterCard {character} />
       {/each}

@@ -69,6 +69,7 @@ npm run test
 ### CharacterCard
 
 Displays individual character information in a themed card with:
+
 - Character image
 - Full name
 - Hogwarts house
@@ -79,6 +80,7 @@ Displays individual character information in a themed card with:
 ### CharacterGrid
 
 Container component that:
+
 - Fetches character data from the Potter API
 - Manages loading and error states
 - Displays characters in a responsive grid
@@ -87,6 +89,7 @@ Container component that:
 ## API
 
 This project uses the [Potter API by Fede Perin](https://potterapi-fedeperin.vercel.app):
+
 - **Endpoint**: `https://potterapi-fedeperin.vercel.app/en/characters`
 - **Method**: GET
 - **Response**: Array of Character objects
@@ -94,6 +97,7 @@ This project uses the [Potter API by Fede Perin](https://potterapi-fedeperin.ver
 ## Styling
 
 The project uses Tailwind CSS with:
+
 - Utility-first approach
 - Custom CSS variables for theme colors
 - Responsive breakpoints (md, lg, xl)
@@ -103,6 +107,7 @@ The project uses Tailwind CSS with:
 ## Development
 
 The application uses Svelte 5's new features:
+
 - `$state` for reactive state
 - `$derived` for computed values
 - `$props` for component props
@@ -111,6 +116,7 @@ The application uses Svelte 5's new features:
 ## Testing
 
 Testing setup with Vitest and Testing Library:
+
 - Component testing support
 - JSDOM environment
 - Jest DOM matchers
@@ -118,6 +124,7 @@ Testing setup with Vitest and Testing Library:
 ## Building
 
 The project builds to static files using Vite:
+
 ```bash
 npm run build
 ```
@@ -127,6 +134,7 @@ Output is generated in the `dist/` directory.
 ## Deployment
 
 Can be deployed to any static hosting service:
+
 - Vercel
 - Netlify
 - GitHub Pages
