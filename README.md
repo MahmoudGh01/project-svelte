@@ -1,47 +1,150 @@
-# Svelte + TS + Vite
+# Harry Potter Wiki - Svelte
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+A Svelte-based web application that displays information about Harry Potter characters. This is a clone of the Next.js Harry Potter Wiki, rebuilt using Svelte, Vite, and TypeScript.
 
-## Recommended IDE Setup
+## Features
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+- **Character Display**: Shows 12 Harry Potter characters with their details
+- **House-Based Theming**: Dynamic color schemes based on Hogwarts houses (Gryffindor, Slytherin, Ravenclaw, Hufflepuff)
+- **Responsive Design**: Mobile-first responsive grid layout
+- **Dark Mode**: Automatic dark mode based on system preference
+- **Loading States**: Skeleton loading animation while fetching data
+- **Error Handling**: User-friendly error messages with retry functionality
+- **TypeScript**: Full type safety throughout the application
 
-## Need an official Svelte framework?
+## Tech Stack
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+- **Svelte 5**: Modern reactive framework
+- **TypeScript**: Type-safe development
+- **Vite**: Fast build tool and dev server
+- **Tailwind CSS 3**: Utility-first CSS framework
+- **Vitest**: Testing framework
+- **Potter API**: External API for character data
 
-## Technical considerations
+## Project Structure
 
-**Why use this over SvelteKit?**
-
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
-
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
-
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
-
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
 ```
+src/
+├── lib/
+│   └── components/
+│       ├── CharacterCard.svelte    # Individual character card component
+│       └── CharacterGrid.svelte    # Grid container with data fetching
+├── types/
+│   └── character.ts                # TypeScript type definitions
+├── tests/
+│   └── setup.ts                    # Vitest setup
+├── App.svelte                      # Root component
+├── app.css                         # Global styles with Tailwind
+└── main.ts                         # Application entry point
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or pnpm
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run tests
+npm run test
+```
+
+## Components
+
+### CharacterCard
+
+Displays individual character information in a themed card with:
+- Character image
+- Full name
+- Hogwarts house
+- Actor name (if available)
+- Birthdate
+- House-specific color theming
+
+### CharacterGrid
+
+Container component that:
+- Fetches character data from the Potter API
+- Manages loading and error states
+- Displays characters in a responsive grid
+- Limits display to first 12 characters
+
+## API
+
+This project uses the [Potter API by Fede Perin](https://potterapi-fedeperin.vercel.app):
+- **Endpoint**: `https://potterapi-fedeperin.vercel.app/en/characters`
+- **Method**: GET
+- **Response**: Array of Character objects
+
+## Styling
+
+The project uses Tailwind CSS with:
+- Utility-first approach
+- Custom CSS variables for theme colors
+- Responsive breakpoints (md, lg, xl)
+- Dark mode variants
+- House-specific color schemes
+
+## Development
+
+The application uses Svelte 5's new features:
+- `$state` for reactive state
+- `$derived` for computed values
+- `$props` for component props
+- Modern runes syntax
+
+## Testing
+
+Testing setup with Vitest and Testing Library:
+- Component testing support
+- JSDOM environment
+- Jest DOM matchers
+
+## Building
+
+The project builds to static files using Vite:
+```bash
+npm run build
+```
+
+Output is generated in the `dist/` directory.
+
+## Deployment
+
+Can be deployed to any static hosting service:
+- Vercel
+- Netlify
+- GitHub Pages
+- Cloudflare Pages
+
+## Differences from Next.js Version
+
+- Simpler state management (Svelte's built-in reactivity vs React hooks)
+- No separate image optimization (standard img tags)
+- Single-page application (no routing)
+- Smaller bundle size
+- Uses Tailwind CSS v3 (v4 in original)
+
+## License
+
+MIT
+
+## Credits
+
+- Character data from [Potter API](https://potterapi-fedeperin.vercel.app)
+- Original Next.js implementation inspiration
