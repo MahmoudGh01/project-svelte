@@ -2,16 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Harry Potter Font */
+@font-face {
+  font-family: 'Harry Potter';
+  src: url('./assets/HarryPotter-ov4z.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* Harry Potter Color Scheme */
+  --background: #0b0b0f; /* dark wizard world */
+  --foreground: #eaeaea; /* soft light text */
+  --primary: #7f0909; /* Gryffindor red */
+  --secondary: #2a623d; /* Slytherin green */
+  --accent: #ecb939; /* Hogwarts gold */
+  --parchment: #f4e8c1; /* old magic paper */
+  --dark-blue: #0e1a40; /* Ravenclaw feel */
+  --bronze: #946b2d; /* wizard bronze */
+  --shadow: #111111; /* dark shadows */
 }
 
 * {
@@ -20,15 +30,41 @@
 
 body {
   margin: 0;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    sans-serif;
+  font-family: 'Garamond', 'Georgia', 'Times New Roman', serif;
   color: var(--foreground);
   background: var(--background);
+  background-image: url('./assets/Harry Potter_..jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Add overlay for better text readability */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 11, 15, 0.75);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Harry Potter styled headings */
+.hp-title {
+  font-family: 'Harry Potter', 'Garamond', 'Georgia', serif;
+  letter-spacing: 0.05em;
+}
+
+/* Magical text shadow effect */
+.hp-magical-text {
+  text-shadow:
+    0 0 10px rgba(236, 185, 57, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.8);
 }
