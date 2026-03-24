@@ -108,8 +108,12 @@
     >
       {#if houseIcon}
         <img src={houseIcon} alt={character.hogwartsHouse} class="w-5 h-5" />
+        <span class="text-xs font-semibold text-white hp-title hp-magical-text"
+          >{character.hogwartsHouse}</span
+        >
       {:else}
         <span class="text-base">❓</span>
+        <span class="text-xs font-semibold text-white">Unknown</span>
       {/if}
     </div>
   </div>

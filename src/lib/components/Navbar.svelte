@@ -1,6 +1,5 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import hogwartsLogo from '../../assets/hogwarts-logo.svg';
 
   const dispatch = createEventDispatcher<{ search: string }>();
 
@@ -61,15 +60,10 @@
       <!-- Logo (Center) -->
       <div class="flex-1 flex justify-center">
         <div class="flex items-center space-x-3">
-          <img
-            src={hogwartsLogo}
-            alt="Hogwarts Logo"
-            class="w-12 h-12 drop-shadow-lg"
-          />
           <h1
-            class="text-2xl font-bold text-hp-accent drop-shadow-lg tracking-wide hp-title hp-magical-text"
+            class="text-4xl font-bold text-hp-accent drop-shadow-lg tracking-wide hp-title hp-magical-text"
           >
-            Harry Potter Wiki
+            Harry Potter
           </h1>
         </div>
       </div>
@@ -77,7 +71,7 @@
       <!-- GitHub Link (Right) -->
       <div class="flex-1 flex justify-end">
         <a
-          href="https://github.com/mahmoudgharbi/project-svelte"
+          href="https://github.com/MahmoudGh01/project-svelte"
           target="_blank"
           rel="noopener noreferrer"
           class="p-2 text-hp-text hover:text-hp-accent transition-colors duration-300
