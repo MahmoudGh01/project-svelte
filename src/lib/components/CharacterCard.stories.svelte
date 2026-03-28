@@ -7,6 +7,9 @@
     title: 'Components/CharacterCard',
     component: CharacterCard,
     tags: ['autodocs'],
+    parameters: {
+      layout: 'centered',
+    },
   });
 
   const harryPotter: Character = {
@@ -21,7 +24,7 @@
     ],
     image:
       'https://potterapi-fedeperin.vercel.app/images/characters/harry_potter.png',
-    birthdate: '31 July 1980',
+    birthdate: '31-07-1980',
     index: 0,
   };
 
@@ -60,6 +63,16 @@
     birthdate: '01-10-1977',
     index: 4,
   };
+  const unknownCharacter: Character = {
+    fullName: 'Unknown Wizard',
+    nickname: '',
+    hogwartsHouse: '',
+    interpretedBy: '',
+    children: [],
+    image: 'https://via.placeholder.com/400x500/111111/ecb939?text=Unknown',
+    birthdate: '',
+    index: 5,
+  };
 </script>
 
 <Story name="Gryffindor" args={{ character: harryPotter }} />
@@ -69,3 +82,7 @@
 <Story name="Ravenclaw" args={{ character: lunaLovegood }} />
 
 <Story name="Hufflepuff" args={{ character: cedricDiggory }} />
+
+<div style="width: 260px;">
+  <Story name="Unknown" args={{ character: unknownCharacter }} />
+</div>
