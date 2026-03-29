@@ -87,7 +87,7 @@
 
 <!-- Full-image card with overlay content -->
 <div
-  class="relative rounded-lg border-2 shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden h-80 {houseColors}"
+  class="relative rounded-lg border-2 transition-all duration-300 hover:scale-105 overflow-hidden h-80 {houseColors}"
 >
   <!-- Full-size background image -->
   <img
