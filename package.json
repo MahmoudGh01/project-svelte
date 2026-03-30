@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.58.2",
     "@storybook/addon-svelte-csf": "^5.1.2",
     "@storybook/svelte-vite": "^10.3.3",
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
