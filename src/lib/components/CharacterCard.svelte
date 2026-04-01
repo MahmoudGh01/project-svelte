@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { push } from 'svelte-spa-router';
   import type { Character } from '../../types/character';
   import gryffindorIcon from '../../assets/icons8-hogwarts-legacy-gryffindor-48.png';
   import slytherinIcon from '../../assets/icons8-hogwarts-legacy-slytherin-48.png';
@@ -83,11 +84,16 @@
   const houseBadgeColors = $derived(
     getHouseBadgeColors(character.hogwartsHouse)
   );
+
+  function handleClick() {
+    push(`/character/${character.index}`);
+  }
 </script>
 
 <!-- Full-image card with overlay content -->
-<div
-  class="relative rounded-lg border-2 shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden h-80 {houseColors}"
+<button
+  onclick={handleClick}
+  class="relative rounded-lg border-2 shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden h-80 {houseColors} w-full text-left cursor-pointer"
 >
   <!-- Full-size background image -->
   <img
@@ -144,4 +150,4 @@
       </p>
     </div>
   </div>
-</div>
+</button>
