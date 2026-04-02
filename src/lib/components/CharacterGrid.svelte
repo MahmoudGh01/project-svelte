@@ -5,6 +5,7 @@
   import Filters, { type FilterOptions } from './Filters.svelte';
   import Pagination from './Pagination.svelte';
   import SearchBar from './SearchBar.svelte';
+  import DiscoverListHeader from './DiscoverListHeader.svelte';
 
   let allCharacters = $state<Character[]>([]);
   let filteredCharacters = $state<Character[]>([]);
@@ -175,6 +176,14 @@
       </div>
     </div>
   {:else}
+    <!-- Hero Section -->
+    <DiscoverListHeader
+      title="Characters"
+      subtitle="discover the wizarding world"
+      description="The Harry Potter series features hundreds of memorable characters from the wizarding world. From the brave students of Hogwarts to the powerful wizards and witches who shaped magical history, each character brings their own unique story. Explore the beloved heroes, cunning villains, and everyone in between who made the wizarding world come alive..."
+      id="page_characters"
+    />
+
     <!-- Search Bar -->
     <SearchBar
       searchQuery={currentSearchQuery}
