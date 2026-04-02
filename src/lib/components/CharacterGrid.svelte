@@ -187,7 +187,7 @@
     </div>
 
     <!-- Results Count -->
-    <div class="mb-6 flex items-center justify-between">
+    <div class="mb-6 text-center">
       <p class="text-hp-parchment drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
         <span class="font-semibold text-hp-accent"
           >{filteredCharacters.length}</span
