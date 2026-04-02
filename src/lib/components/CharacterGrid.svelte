@@ -4,6 +4,7 @@
   import CharacterCard from './CharacterCard.svelte';
   import Filters, { type FilterOptions } from './Filters.svelte';
   import Pagination from './Pagination.svelte';
+  import SearchBar from './SearchBar.svelte';
 
   let allCharacters = $state<Character[]>([]);
   let filteredCharacters = $state<Character[]>([]);
@@ -21,6 +22,12 @@
 
   export function filterCharacters(searchQuery: string) {
     currentSearchQuery = searchQuery;
+    applyFiltersAndSearch();
+  }
+
+  function handleSearchChange(query: string) {
+    currentSearchQuery = query;
+    currentPage = 1; // Reset to first page when search changes
     applyFiltersAndSearch();
   }
 
@@ -168,6 +175,12 @@
       </div>
     </div>
   {:else}
+    <!-- Search Bar -->
+    <SearchBar
+      searchQuery={currentSearchQuery}
+      onSearchChange={handleSearchChange}
+    />
+
     <!-- Filters Section -->
     <div class="mb-6">
       <Filters on:filterChange={handleFilterChange} />
