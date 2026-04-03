@@ -2,6 +2,8 @@
 
 A Svelte-based web application that displays information about Harry Potter characters. This is a clone of the Next.js Harry Potter Wiki, rebuilt using Svelte, Vite, and TypeScript.
 
+![Home Page](./public/screenshots/homePage.png)
+
 ## Features
 
 - **Character Display**: Shows 12 Harry Potter characters with their details
@@ -135,7 +137,8 @@ Output is generated in the `dist/` directory.
 
 Can be deployed to any static hosting service:
 
-- Vercel
+### [Live App on Vercel](https://project-svelte-silk.vercel.app/)
+
 - Netlify
 - GitHub Pages
 - Cloudflare Pages

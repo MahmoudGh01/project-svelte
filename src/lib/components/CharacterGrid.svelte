@@ -4,6 +4,8 @@
   import CharacterCard from './CharacterCard.svelte';
   import Filters, { type FilterOptions } from './Filters.svelte';
   import Pagination from './Pagination.svelte';
+  import SearchBar from './SearchBar.svelte';
+  import DiscoverListHeader from './DiscoverListHeader.svelte';
 
   let allCharacters = $state<Character[]>([]);
   let filteredCharacters = $state<Character[]>([]);
@@ -21,6 +23,12 @@
 
   export function filterCharacters(searchQuery: string) {
     currentSearchQuery = searchQuery;
+    applyFiltersAndSearch();
+  }
+
+  function handleSearchChange(query: string) {
+    currentSearchQuery = query;
+    currentPage = 1; // Reset to first page when search changes
     applyFiltersAndSearch();
   }
 
@@ -168,13 +176,27 @@
       </div>
     </div>
   {:else}
+    <!-- Hero Section -->
+    <DiscoverListHeader
+      title="Characters"
+      subtitle="discover the wizarding world"
+      description="The Harry Potter series features hundreds of memorable characters from the wizarding world. From the brave students of Hogwarts to the powerful wizards and witches who shaped magical history, each character brings their own unique story. Explore the beloved heroes, cunning villains, and everyone in between who made the wizarding world come alive..."
+      id="page_characters"
+    />
+
+    <!-- Search Bar -->
+    <SearchBar
+      searchQuery={currentSearchQuery}
+      onSearchChange={handleSearchChange}
+    />
+
     <!-- Filters Section -->
     <div class="mb-6">
       <Filters on:filterChange={handleFilterChange} />
     </div>
 
     <!-- Results Count -->
-    <div class="mb-6 flex items-center justify-between">
+    <div class="mb-6 text-center">
       <p class="text-hp-parchment drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
         <span class="font-semibold text-hp-accent"
           >{filteredCharacters.length}</span

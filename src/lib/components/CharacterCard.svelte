@@ -92,6 +92,7 @@
 
 <!-- Full-image card with overlay content -->
 <button
+  data-testid="character-card"
   onclick={handleClick}
   class="relative rounded-lg border-2 shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden h-80 {houseColors} w-full text-left cursor-pointer"
 >
